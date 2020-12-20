@@ -1,0 +1,125 @@
+{
+  "formatVersion" : "1.1",
+  "createdBy" : {
+    "gradle" : {
+      "version" : "6.4.1",
+      "buildId" : "f3qeax37m5clnbhpav2e54mfr4"
+    }
+  },
+  "component" : {
+    "url" : "../../projector-client/-SNAPSHOT/projector-client--SNAPSHOT.module",
+    "group" : "com.github.JetBrains",
+    "module" : "projector-client",
+    "version" : "-SNAPSHOT",
+    "attributes" : {
+      "org.gradle.status" : "integration"
+    }
+  },
+  "variants" : [ {
+    "name" : "jvm-api",
+    "attributes" : {
+      "org.gradle.libraryelements" : "jar",
+      "org.gradle.usage" : "java-api",
+      "org.jetbrains.kotlin.platform.type" : "jvm"
+    },
+    "dependencies" : [ {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-stdlib-jdk8",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-stdlib-common",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-reflect",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    } ],
+    "files" : [ {
+      "name" : "projector-common-jvm--SNAPSHOT.jar",
+      "url" : "projector-common-jvm--SNAPSHOT.jar",
+      "size" : 661453,
+      "sha512" : "b3e4188fa5a6def26b8dba1dcda018ec62d4cd342028597ee5ad5d21e1b1a203ec5cc176fe50d0f586f45d6b14c4ed51bb541310953f2aee24178ffe35f76d1b",
+      "sha256" : "fde31a09949cbb7f4ef8e357b2674299bb49d9e6cc68123ac6b0c64edf59d40c",
+      "sha1" : "16d1c3b65ca3ddea8a48e26792a826cd19316e91",
+      "md5" : "977e68fce670661d5b42dd6d52c5cfa2"
+    } ]
+  }, {
+    "name" : "jvm-runtime",
+    "attributes" : {
+      "org.gradle.libraryelements" : "jar",
+      "org.gradle.usage" : "java-runtime",
+      "org.jetbrains.kotlin.platform.type" : "jvm"
+    },
+    "dependencies" : [ {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-stdlib-jdk8",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-stdlib-common",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlin",
+      "module" : "kotlin-reflect",
+      "version" : {
+        "requires" : "1.3.70"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlinx",
+      "module" : "kotlinx-serialization-runtime",
+      "version" : {
+        "requires" : "0.20.0"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlinx",
+      "module" : "kotlinx-serialization-protobuf",
+      "version" : {
+        "requires" : "0.20.0"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlinx",
+      "module" : "kotlinx-serialization-runtime-common",
+      "version" : {
+        "requires" : "0.20.0"
+      }
+    }, {
+      "group" : "org.jetbrains.kotlinx",
+      "module" : "kotlinx-serialization-protobuf-common",
+      "version" : {
+        "requires" : "0.20.0"
+      }
+    } ],
+    "files" : [ {
+      "name" : "projector-common-jvm--SNAPSHOT.jar",
+      "url" : "projector-common-jvm--SNAPSHOT.jar",
+      "size" : 661453,
+      "sha512" : "b3e4188fa5a6def26b8dba1dcda018ec62d4cd342028597ee5ad5d21e1b1a203ec5cc176fe50d0f586f45d6b14c4ed51bb541310953f2aee24178ffe35f76d1b",
+      "sha256" : "fde31a09949cbb7f4ef8e357b2674299bb49d9e6cc68123ac6b0c64edf59d40c",
+      "sha1" : "16d1c3b65ca3ddea8a48e26792a826cd19316e91",
+      "md5" : "977e68fce670661d5b42dd6d52c5cfa2"
+    } ]
+  }, {
+    "name" : "metadata-api",
+    "attributes" : {
+      "org.gradle.usage" : "kotlin-api",
+      "org.jetbrains.kotlin.platform.type" : "common"
+    },
+    "available-at" : {
+      "url" : "../../projector-common-metadata/-SNAPSHOT/projector-common-metadata--SNAPSHOT.module",
+      "group" : "com.github.JetBrains.projector-client",
+      "module" : "projector-common-metadata",
+      "version" : "-SNAPSHOT"
+    }
+  } ]
+}
