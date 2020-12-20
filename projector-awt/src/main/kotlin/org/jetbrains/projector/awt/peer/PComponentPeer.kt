@@ -23,6 +23,7 @@ package org.jetbrains.projector.awt.peer
 import org.jetbrains.projector.awt.PToolkit
 import org.jetbrains.projector.awt.PWindow
 import org.jetbrains.projector.awt.image.PVolatileImage
+import sun.awt.CausedFocusEvent
 import sun.awt.image.ToolkitImage
 import sun.java2d.pipe.Region
 import java.awt.*
@@ -149,7 +150,7 @@ abstract class PComponentPeer(target: Component, private val isFocusable: Boolea
     temporary: Boolean,
     focusedWindowChangeAllowed: Boolean,
     time: Long,
-    cause: FocusEvent.Cause
+    cause: CausedFocusEvent.Cause
   ): Boolean {
     pWindow.target.let {
       return PKeyboardFocusManagerPeer.deliverFocus(

@@ -148,7 +148,7 @@ class CaretInfoUpdater(private val onCaretInfoChanged: (ServerCaretInfoChangedEv
               var editorPWindow: PWindow? = null
 
               while (rootComponent != null) {
-                val peer = AWTAccessor.getComponentAccessor().getPeer<ComponentPeer>(rootComponent)
+                val peer = AWTAccessor.getComponentAccessor().getPeer(rootComponent)
 
                 if (peer is PComponentPeer) {
                   editorPWindow = peer.pWindow

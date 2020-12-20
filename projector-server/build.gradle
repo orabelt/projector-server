@@ -42,7 +42,17 @@ configurations.all {
 }
 
 dependencies {
-  implementation("com.github.JetBrains.projector-client:projector-common:$projectorClientVersion")
+//  implementation("com.github.JetBrains.projector-client:projector-common:$projectorClientVersion")
+  implementation files('libs/projector-common-jvm--SNAPSHOT.jar')
+
+  api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0")
+  api("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:0.20.0")
+  api("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.20.0")
+  api("org.jetbrains.kotlinx:kotlinx-serialization-protobuf-common:0.20.0")
+
+  api("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+
+
   api project(":projector-awt")
 
   api "org.java-websocket:Java-WebSocket:$javaWebSocketVersion"

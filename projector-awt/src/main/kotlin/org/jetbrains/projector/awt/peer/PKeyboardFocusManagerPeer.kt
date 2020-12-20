@@ -20,6 +20,7 @@
 
 package org.jetbrains.projector.awt.peer
 
+import sun.awt.CausedFocusEvent
 import sun.awt.KeyboardFocusManagerPeerImpl
 import java.awt.Component
 import java.awt.Window
@@ -62,7 +63,7 @@ object PKeyboardFocusManagerPeer : KeyboardFocusManagerPeerImpl() {
     temporary: Boolean,
     focusedWindowChangeAllowed: Boolean,
     time: Long,
-    cause: FocusEvent.Cause
+    cause: CausedFocusEvent.Cause
   ): Boolean {
     focusOwnerLock.read {
       return deliverFocus(

@@ -120,7 +120,7 @@ class ProjectorServer private constructor(
     },
     placeToWindowCallback = BiConsumer { id, rootComponent ->
       rootComponent?.let {
-        val peer = AWTAccessor.getComponentAccessor().getPeer<ComponentPeer>(it)
+        val peer = AWTAccessor.getComponentAccessor().getPeer(it)
 
         if (peer !is PComponentPeer) {
           return@let
@@ -265,7 +265,7 @@ class ProjectorServer private constructor(
 
         PMouseInfoPeer.lastMouseCoords.setLocation(shiftedMessage.x, shiftedMessage.y)
 
-        val window = PWindow.getWindow(message.windowId)?.target ?: return@invokeLater
+        val window = PWindow.findWindowAt(shiftedMessage.x, shiftedMessage.y)?.target ?: return@invokeLater
 
         fun isEnoughDeltaForScrolling(previousTouchState: TouchState.Scrolling, newX: Int, newY: Int): Boolean {
           // reduce number of scroll events to make deltas bigger.
@@ -301,7 +301,7 @@ class ProjectorServer private constructor(
         val shiftedMessage = message.shift(PGraphicsDevice.clientShift)
         PMouseInfoPeer.lastMouseCoords.setLocation(shiftedMessage.x, shiftedMessage.y)
 
-        val window = PWindow.getWindow(message.windowId)?.target ?: return@invokeLater
+        val window = PWindow.findWindowAt(shiftedMessage.x, shiftedMessage.y)?.target ?: return@invokeLater
 
         val mouseWheelEvent = createMouseWheelEvent(window, shiftedMessage, clientSettings.connectionMillis)
         laterInvokator(mouseWheelEvent)
@@ -820,17 +820,30 @@ class ProjectorServer private constructor(
       return map(mouseModifierMask::getValue).fold(0, Int::or)
     }
 
-    private fun setupGraphicsEnvironment() {
-      val classes = GraphicsEnvironment::class.java.declaredClasses
-      val localGE = classes.single()
-      check(localGE.name == "java.awt.GraphicsEnvironment\$LocalGE")
+    //private fun setupGraphicsEnvironment() {
+    //  val classes = GraphicsEnvironment::class.java.declaredClasses
+    //  val localGE = classes.single()
+    //  check(localGE.name == "java.awt.GraphicsEnvironment\$LocalGE")
+    //
+    //  localGE.getDeclaredField("INSTANCE").apply {
+    //    unprotect()
+    //
+    //    set(null, PGraphicsEnvironment())
+    //  }
+    //}
 
-      localGE.getDeclaredField("INSTANCE").apply {
+    private fun setupGraphicsEnvironment() {
+      //val classes = GraphicsEnvironment::class
+      //val localGE = GraphicsEnvironment::getLocalGraphicsEnvironment
+      //check(localGE.name == "java.awt.GraphicsEnvironment\$LocalGE")
+
+      GraphicsEnvironment::class.java.getDeclaredField("localEnv").apply {
         unprotect()
 
         set(null, PGraphicsEnvironment())
       }
     }
+
 
     private fun setupToolkit() {
       Toolkit::class.java.getDeclaredField("toolkit").apply {

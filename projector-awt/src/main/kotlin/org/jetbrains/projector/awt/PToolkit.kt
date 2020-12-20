@@ -22,11 +22,13 @@ package org.jetbrains.projector.awt
 
 import org.jetbrains.projector.awt.peer.*
 import sun.awt.*
+import sun.awt.datatransfer.DataTransferer
 import sun.awt.image.ByteArrayImageSource
 import sun.awt.image.FileImageSource
 import sun.awt.image.ToolkitImage
 import sun.awt.image.URLImageSource
 import sun.font.FontDesignMetrics
+import sun.misc.SoftCache
 import java.awt.*
 import java.awt.Dialog.ModalExclusionType
 import java.awt.Dialog.ModalityType
@@ -142,6 +144,10 @@ class PToolkit : Toolkit(), KeyboardFocusManagerPeerProvider, ComponentFactory {
     return PMenuPeer()  // todo: call targetCreatedPeer(target, it)
   }
 
+  override fun createRobot(target: Robot?, screen: GraphicsDevice?): RobotPeer {
+    TODO("Not yet implemented")
+  }
+
   override fun createPopupMenu(target: PopupMenu): PopupMenuPeer {
     return PPopupMenuPeer()  // todo: call targetCreatedPeer(target, it)
   }
@@ -162,6 +168,10 @@ class PToolkit : Toolkit(), KeyboardFocusManagerPeerProvider, ComponentFactory {
 
   override fun getFontPeer(name: String, style: Int): FontPeer? {
     return null
+  }
+
+  override fun getDataTransferer(): DataTransferer {
+    TODO("Not yet implemented")
   }
 
   override fun getScreenSize(): Dimension {

@@ -28,6 +28,7 @@ import org.jetbrains.projector.common.protocol.toClient.ServerImageDataReplyEven
 import org.jetbrains.projector.server.log.Logger
 import org.jetbrains.projector.server.util.SizeAware
 import org.jetbrains.projector.server.util.unprotect
+import sun.awt.image.MultiResolutionImage
 import sun.awt.image.SunVolatileImage
 import sun.awt.image.ToolkitImage
 import sun.java2d.StateTrackable
@@ -53,7 +54,7 @@ object ProjectorImageCacher : ImageCacher {
     is MultiResolutionImage -> image.resolutionVariants
                                 .singleOrNull()
                                 ?.let { getImageId(it, "$methodName, extracted single variant") }
-                                ?: ImageId.Unknown(
+                               ?: ImageId.Unknown(
                                   "$methodName received MultiResolutionImage with bad variant count (${image.resolutionVariants.size}): $image")
 
     else -> ImageId.Unknown("$methodName received ${this::class.qualifiedName}: $this")

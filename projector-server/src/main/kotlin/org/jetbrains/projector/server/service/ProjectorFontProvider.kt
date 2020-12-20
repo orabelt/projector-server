@@ -98,7 +98,7 @@ object ProjectorFontProvider : FontProvider {
 
     val link = PFontManager::class.java.getResourceAsStream(fontPath)
     Files.copy(link, tempFile.absoluteFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
-    return PFontManager.createFont2D(tempFile, Font.TRUETYPE_FONT, false, false, null).single() as PhysicalFont
+    return PFontManager.createFont2D(tempFile, Font.TRUETYPE_FONT, false, null) as PhysicalFont
   }
 
   private const val DEFAULT_R_NAME = "Default-R"
