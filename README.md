@@ -5,6 +5,8 @@ Server-side library for running Swing applications remotely.
 
 For more info, please check out [Projector.md](https://github.com/JetBrains/projector-server/blob/master/docs/Projector.md).
 
+**Upd:** *Basically view Windows/Linux open-jdk 8 and CrossPlatform L&F (not windows native) for old stuff.*
+
 ## Building
 The following command creates a zip file with the whole runtime classpath:
 
@@ -94,7 +96,7 @@ There are two gradle tasks for running server. They are handy when developing. T
     * `projectorLauncher.ideaPath` &mdash; path to IDEA's root directory.
 
 ## Notes
-Currently, `projector-server` supports only Linux and JetBrains Runtime 11 as JRE.
+~~Currently, `projector-server` supports only Linux and JetBrains Runtime 11 as JRE.~~
 
 To set the port which will be used by Projector Server for WebSocket, use the `-Dorg.jetbrains.projector.server.port=8001` System Property.
 
